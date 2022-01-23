@@ -24,26 +24,26 @@ class WordleKey extends ConsumerWidget {
     } else {
       width = 35;
       keyCap = Text(
-        letter,
+        letter.toUpperCase(),
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       );
     }
 
-    return Container(
-      width: width,
-      height: 55,
-      alignment: Alignment.center,
-      // padding: EdgeInsets.all(10),
-      margin: EdgeInsets.all(3),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(4)),
-          color: Color.fromARGB(44, 44, 44, 44)),
-      child: InkWell(
-        onTap: () {
-          ref.read(gameStateProvider.notifier).updateCurrentAttempt(letter);
-        },
-        child: keyCap,
+    return InkWell(
+      onTap: () {
+        ref.read(gameStateProvider.notifier).updateCurrentAttempt(letter);
+      },
+      child: Container(
+        width: width,
+        height: 55,
+        alignment: Alignment.center,
+        margin: EdgeInsets.all(3),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(4)),
+            color: Color.fromARGB(44, 44, 44, 44)),
+        child: keyCap ,
       ),
     );
+
   }
 }

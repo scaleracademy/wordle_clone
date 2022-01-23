@@ -12,19 +12,19 @@ class WordleKeyboard extends StatelessWidget {
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            for (var i in "QWERTYUIOP".split("")) WordleKey(i)
+            for (var i in "qwertyuiop".split("")) WordleKey(i)
           ],
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            for (var i in "ASDFGHJKL".split("")) WordleKey(i)
+            for (var i in "asdfghjkl".split("")) WordleKey(i)
           ],
         ),
         Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            for (var i in "_ZXCVBNM<".split("")) WordleKey(i)
+            for (var i in "_zxcvbnm<".split("")) WordleKey(i)
           ],
         ),
       ],
