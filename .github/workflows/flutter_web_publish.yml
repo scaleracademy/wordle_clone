@@ -8,10 +8,19 @@ jobs:
   build:
     name: Build Web and Deploy
     runs-on: ubuntu-latest
+    env:
+      BASE_HREF: /${{ github.event.repository.name }}/
     steps:
       - uses: actions/checkout@v2
       - uses: subosito/flutter-action@v2
         with:
-          flutter-version: '2.x'
-          channel: 'any'
-      - run: flutter --version
+          flutter-version: '2.8.1'
+          channel: 'stable'
+      - run: flutter build web --release --base-href $BASE_HREF
+      - name: Deply gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
+
