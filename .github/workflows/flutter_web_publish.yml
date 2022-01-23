@@ -8,8 +8,10 @@ jobs:
   build:
     name: Build Web and Deploy
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: subosito/flutter-action@v2
-        with:
-          channel: '
+  steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.x'
+        channel: 'any'
+    - run: flutter --version
